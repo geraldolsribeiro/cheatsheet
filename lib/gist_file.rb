@@ -16,7 +16,7 @@ module CheatSheet
     end
 
     def path_to_file
-      File.expand_path("./#{@file_name}.#{file_type}")
+      File.expand_path("./#{@file_name}.#{@file_type}")
     end
 
     def destroy_file
@@ -28,7 +28,7 @@ module CheatSheet
     end
 
     def create_file
-      File.new(@file_name+'.txt', 'w') unless File.file?(@file_name)
+      File.new(@file_name+".#{@file_type}", "w") unless File.file?(@file_name)
     end
   end
 
