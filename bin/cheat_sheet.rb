@@ -32,11 +32,5 @@ if !no_logo && !command
 end
 
 require_relative '../lib/cheatsheet/gist_core'
-app = CheatSheet::GistCore.new
+CheatSheet::GistCore.new.start
 
-while input = gets
-  if input.chomp == ':exit'
-    exit
-  end
-  app.check_options(input)
-end
