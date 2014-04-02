@@ -25,10 +25,8 @@ module CheatSheet
 
     def parsed_options?
       opts = OptionParser.new (ARGV)
-      opts.on('-v', '--version') { output_version; exit 0 }
-      opts.on('-h', '--help') { output_help }
-      opts.on('-V', '--verbose') { @options.verbose = true }
-      opts.on('-q', '--quiet') { @options.quiet = true }
+      opts.on(':version', '--version') { CheatSheet::VERSION; exit 0 }
+      opts.on(':help', '--help') { "" }
       opts.parse!(@arguments) rescue return false
 
       process_options
@@ -50,7 +48,6 @@ module CheatSheet
     def output_options
       puts "Options:\
            "
-
       @options.marshal_dump.each do |name, val|
         puts "  #{name} = #{val}"
       end
