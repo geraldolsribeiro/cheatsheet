@@ -18,13 +18,13 @@ module CheatSheet
     end
 
     def process_options
-      @options.verbose = false if @options.quiet
+    # TO DO - process the argguments here
     end
 
     def parsed_options?
       opts = OptionParser.new (ARGV)
       opts.on(':version', '--version') { CheatSheet::VERSION; exit 0 }
-      opts.on(':help', '--help') { "" }
+      opts.on(':help', '--help') { "Use help to see more commands" }
       opts.parse!(@arguments) rescue return false
 
       process_options
@@ -40,7 +40,6 @@ module CheatSheet
     end
 
     def process_command
-      # TO DO - do whatever this app does
     end
 
     def output_options

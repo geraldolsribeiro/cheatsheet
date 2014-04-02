@@ -33,4 +33,10 @@ end
 
 require_relative '../lib/cheatsheet/gist_core'
 app = CheatSheet::GistCore.new
-app.start
+
+while input = gets
+  if input.chomp == ':exit'
+    exit
+  end
+  app.check_options(input)
+end
