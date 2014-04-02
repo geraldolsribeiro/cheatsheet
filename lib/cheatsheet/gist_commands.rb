@@ -17,8 +17,6 @@ module CheatSheet
       output_options
     end
 
-    protected
-
     def process_options
       @options.verbose = false if @options.quiet
     end

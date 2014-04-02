@@ -29,6 +29,6 @@ if !no_logo && !command
   print "\e[0m"
 end
 
-require_relative '../lib/cheatsheet/gist_commands'
-app = CheatSheet::GistCommands.new(ARGV, STDIN)
-app.run
+require_relative '../lib/cheatsheet/gist_core'
+app = CheatSheet::GistCore.new
+app.start

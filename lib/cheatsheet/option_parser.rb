@@ -1,7 +1,6 @@
 # encoding: UTF-8
 require 'slop'
 
-module CheatSheet
   class OptionParser
     Help = Class.new(StandardError)
 
@@ -29,5 +28,5 @@ module CheatSheet
         s.on :'--no-stream', 'No stream mode'
       end
     end
-  end
 end
+
