@@ -9,7 +9,7 @@ Encoding.default_external = Encoding.find('UTF-8')
 
 %w(
   gist_core
-  gist_output
   gist_help
+  gist_core
   gist_commands
 ).each { |name| require_dependency File.expand_path("../cheatsheet/#{name}", __FILE__) }

@@ -31,6 +31,9 @@ if !no_logo && !command
   print "\e[0m"
 end
 
+require_relative '../lib/cheatsheet/gist_setup'
 require_relative '../lib/cheatsheet/gist_core'
+require_relative '../lib/cheatsheet/gist_file'
+
 CheatSheet::GistCore.new.start
 

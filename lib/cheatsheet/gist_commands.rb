@@ -17,7 +17,8 @@ module CheatSheet
           :debugging => "Lists all commands",
           :javascript => "Working with asynchronous Javascript",
           :selectors => "Css and xpath selectors for elements",
-          :exit => "To exit app"}
+          :exit => "To exit app"
+      }
     end
 
     def run
@@ -31,11 +32,17 @@ module CheatSheet
         exit
       end
 
+      if input.chomp == ':links'
+        CheatSheet::GistFile.new
+      end
+
       if input.chomp == ':help'
         output_options
       end
 
-      puts "Invalid command use ':help' to view commands".c(95)
+      #else
+      #  puts "Invalid command use ':help' to view commands".c(95)
+      #end
     end
 
     def output_options

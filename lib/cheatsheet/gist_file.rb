@@ -1,5 +1,3 @@
-require_relative '../lib/gist_setup'
-
 module CheatSheet
   class GistFile
 
