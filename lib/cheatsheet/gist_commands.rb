@@ -11,10 +11,11 @@ module CheatSheet
           :links => "Working with links",
           :buttons => "Interacting with buttons",
           :navigating => "Moving between pages",
-          :interactions => "Interacting with forms",
+          :interacting => "Interacting with forms",
           :scoping => "Page interaction and scoping",
           :scripting => "Carrying out scripting",
           :debugging => "Lists all commands",
+          :querying => "Lists all commands",
           :javascript => "Working with asynchronous Javascript",
           :selectors => "Css and xpath selectors for elements",
           :exit => "To exit app"
@@ -33,19 +34,45 @@ module CheatSheet
         exit
       end
 
-      if input.chomp == ':links'
-        @file.search_file("links")
-      end
-      if input.chomp == ':buttons'
+      if input.chomp == ':buttons' || input.chomp == ':links'
         @file.search_file("buttons")
       end
 
       if input.chomp == ':navigating'
-        @file.search_file("navigating   ")
+        @file.search_file("Navigating")
       end
 
-      if input.chomp == ':interactions'
-        @file.search_file("interactions")
+      if input.chomp == ':interacting'
+        @file.search_file("Interacting")
+      end
+
+      if input.chomp == ':scoping'
+        @file.search_file("scoping")
+      end
+
+      if input.chomp == ':debugging'
+        @file.search_file("Debugging")
+      end
+
+      if input.chomp == ':querying'
+        @file.search_file("Querying")
+      end
+
+
+      if input.chomp == ':javascript'
+        @file.search_file("Javascript")
+      end
+
+      if input.chomp == ':selectors'
+        @file.search_file("xpath")
+      end
+
+      if input.chomp == ':scripting'
+        @file.search_file("Scripting")
+      end
+
+      if input.chomp == ':interacting'
+        @file.search_file("Interacting")
       end
 
       if input.chomp == ':help'
