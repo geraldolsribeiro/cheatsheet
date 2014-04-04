@@ -28,6 +28,14 @@ module CheatSheet
     def create_file
       File.new(@file_name+".#{@file_type}", "w") unless File.file?(@file_name)
     end
+
+    def current_body_text(text)
+      puts read_file.match(/#{text}(.*)\s=/m)
+    end
+
+    def search_file(text)
+      current_body_text(text)
+    end
   end
 
 end

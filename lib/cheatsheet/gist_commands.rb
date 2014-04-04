@@ -3,7 +3,7 @@ require 'date'
 
 module CheatSheet
   class GistCommands
-    attr_accessor :options
+    attr_accessor :options, :file
 
     def initialize
       puts "Press ':help' for help with cheatsheet commands".c (94)
@@ -19,6 +19,7 @@ module CheatSheet
           :selectors => "Css and xpath selectors for elements",
           :exit => "To exit app"
       }
+      @file = CheatSheet::GistFile.new
     end
 
     def run
@@ -33,7 +34,18 @@ module CheatSheet
       end
 
       if input.chomp == ':links'
-        CheatSheet::GistFile.new
+        @file.search_file("links")
+      end
+      if input.chomp == ':buttons'
+        @file.search_file("buttons")
+      end
+
+      if input.chomp == ':navigating'
+        @file.search_file("navigating   ")
+      end
+
+      if input.chomp == ':interactions'
+        @file.search_file("interactions")
       end
 
       if input.chomp == ':help'
