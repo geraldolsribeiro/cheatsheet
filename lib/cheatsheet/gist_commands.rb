@@ -61,7 +61,7 @@ module CheatSheet
       end
 
       if input.chomp == ':selectors'
-        @file.search_file("xpath")
+        @file.search_file("selectors")
       end
 
       if input.chomp == ':scripting'
