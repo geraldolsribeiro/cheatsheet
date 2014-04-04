@@ -30,7 +30,8 @@ module CheatSheet
     end
 
     def current_body_text(text)
-      puts read_file.match(/#{text}(.*)\s=/m)
+      puts read_file.match(/^=[^\n]*#{text}.*?(?=\n=)/m)
+      puts("\n")
     end
 
     def search_file(text)
