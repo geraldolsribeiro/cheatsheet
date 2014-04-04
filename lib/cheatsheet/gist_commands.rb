@@ -1,12 +1,10 @@
-require 'ostruct'
-require 'date'
-
 module CheatSheet
   class GistCommands
     attr_accessor :options, :file
 
     def initialize
       puts "Press ':help' for help with cheatsheet commands".c (94)
+
       @options = {
           :links => "Working with links",
           :buttons => "Interacting with buttons",
@@ -14,8 +12,8 @@ module CheatSheet
           :interacting => "Interacting with forms",
           :scoping => "Page interaction and scoping",
           :scripting => "Carrying out scripting",
-          :debugging => "Lists all commands",
-          :querying => "Lists all commands",
+          :debugging => "Commands for debugging",
+          :querying => "Lists all commands for querying source",
           :javascript => "Working with asynchronous Javascript",
           :selectors => "Css and xpath selectors for elements",
           :exit => "To exit app"
@@ -57,7 +55,6 @@ module CheatSheet
       if input.chomp == ':querying'
         @file.search_file("Querying")
       end
-
 
       if input.chomp == ':javascript'
         @file.search_file("Javascript")
