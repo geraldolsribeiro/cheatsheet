@@ -57,11 +57,11 @@ module CheatSheet
       end
 
       if input.chomp == ':javascript'
-        @file.search_file("Javascript")
+        @file.search_file("Asynchronous")
       end
 
       if input.chomp == ':selectors'
-        @file.search_file("selectors")
+        @file.search_file("XPath")
       end
 
       if input.chomp == ':scripting'
