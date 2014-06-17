@@ -26,7 +26,7 @@ module CheatSheet
     end
 
     def create_file
-      File.new(@file_name+".#{@file_type}", "w") unless File.file?(@file_name)
+      File.new(@file_name+".#{@file_type}", "w") if is_empty
     end
 
     def current_body_text(text)
@@ -37,6 +37,12 @@ module CheatSheet
     def search_file(text)
       current_body_text(text)
     end
+
+    def is_empty?
+      read_file == nil
+    end
   end
 
 end
+
+
