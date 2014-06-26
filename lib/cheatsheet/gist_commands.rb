@@ -5,15 +5,15 @@ module CheatSheet
     def initialize
       puts "Type 'help' for help with cheatsheet commands".c (94)
 
-      @options = CheatSheet::CommandOptions.new.options
-      @defaults = CheatSheet::CommandOptions.new.defaults
-      @search_text = CheatSheet::CommandOptions.new.search_keys
+      @options = CheatSheet::CommandOptions::OPTIONS
+      @defaults = CheatSheet::CommandOptions::DEFAULTS
+      @search_text = CheatSheet::CommandOptions::SEARCH_KEYS
       @file = CheatSheet::GistFile.new
     end
 
     def run
       while input = gets
-        process_command(input)
+        process_command input
       end
     end
 
@@ -21,8 +21,8 @@ module CheatSheet
       chomped_input = input.chomp
       key = chomped_input.to_sym
 
-      if (!@search_text.include?(key))
-        process_defaults(chomped_input)
+      if !@search_text.include? key
+        process_defaults chomped_input
         process_other(chomped_input, input)
       end
     end
@@ -43,10 +43,10 @@ module CheatSheet
     def process_command(input)
       chomped_input = input.chomp
       key = chomped_input.to_sym
-      validate_input(input)
+      validate_input input
 
       if @search_text.include? key
-        @file.search_file(@search_text[key])
+        @file.search_file @search_text[key]
       end
     end
 
