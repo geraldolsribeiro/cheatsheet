@@ -41,9 +41,19 @@ module CheatSheet
     end
 
     def validate_input(input)
-      key = input.chomp.to_sym
+      defaults = ['exit', 'help']
+      chomped_input = input.chomp
+      key = chomped_input.to_sym
+
       if (!@search_text.include?(key))
-        puts ("Invalid command :#{input}Available options ...\n").c(91)
+        if defaults.include? chomped_input
+          chomped_input == 'help'? output_options : exit
+        end
+
+        if !defaults.include? chomped_input
+          puts ("Invalid command :#{input}Available options ...\n").c(91)
+          output_options
+        end
       end
     end
 
