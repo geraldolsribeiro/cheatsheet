@@ -6,33 +6,31 @@ module CheatSheet
       puts "Type 'help' for help with cheatsheet commands".c (94)
 
       @options = {
-          :links => "Working with links",
-          :buttons => "Interacting with buttons",
-          :navigating => "Moving between pages",
-          :interacting => "Interacting with forms",
-          :scoping => "Page interaction and scoping",
-          :scripting => "Carrying out scripting",
-          :debugging => "Commands for debugging",
-          :querying => "Lists all commands for querying source",
-          :javascript => "Working with asynchronous Javascript",
-          :selectors => "Css and xpath selectors for elements",
-          :exit => "To exit app"
+          :links => 'Working with links',
+          :buttons => 'Interacting with buttons',
+          :navigating => 'Moving between pages',
+          :interacting => 'Interacting with forms',
+          :scoping => 'Page interaction and scoping',
+          :scripting => 'Carrying out scripting',
+          :debugging => 'Commands for debugging',
+          :querying => 'Lists all commands for querying source',
+          :javascript => 'Working with asynchronous Javascript',
+          :selectors => 'Css and xpath selectors for elements',
+          :exit => 'To exit app'
       }
 
       @search_text = {
-          :buttons => "buttons",
-          :navigating => "Navigating",
-          :help => output_options,
-          :interacting => "Interacting",
-          :scoping => "scoping",
-          :debugging => "Debugging",
-          :querying => "Querying",
-          :scripting => "Scripting",
-          :javascript => "Asynchronous",
-          :selectors => "Xpath",
-          :exit => exit
+          :buttons => 'buttons',
+          :links => 'buttons',
+          :navigating => 'Navigating',
+          :interacting => 'Interacting',
+          :scoping => 'scoping',
+          :debugging => 'Debugging',
+          :querying => 'Querying',
+          :scripting => 'Scripting',
+          :javascript => 'Asynchronous',
+          :selectors => 'CSS'
       }
-
       @file = CheatSheet::GistFile.new
     end
 
@@ -42,8 +40,18 @@ module CheatSheet
       end
     end
 
-    def process_command(input)
+    def validate_input(input)
       key = input.chomp.to_sym
+      if (!@search_text.include?(key))
+        puts ("Invalid command :#{input}Available options ...\n").c(91)
+      end
+    end
+
+    def process_command(input)
+      chomped_input = input.chomp
+      key = chomped_input.to_sym
+      validate_input(input)
+
       if @search_text.include? key
         @file.search_file(@search_text[key])
       end
