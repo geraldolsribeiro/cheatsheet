@@ -31,6 +31,7 @@ module CheatSheet
           :javascript => 'Asynchronous',
           :selectors => 'CSS'
       }
+      @defaults = ['exit', 'help']
       @file = CheatSheet::GistFile.new
     end
 
@@ -41,19 +42,25 @@ module CheatSheet
     end
 
     def validate_input(input)
-      defaults = ['exit', 'help']
       chomped_input = input.chomp
       key = chomped_input.to_sym
 
       if (!@search_text.include?(key))
-        if defaults.include? chomped_input
-          chomped_input == 'help'? output_options : exit
-        end
+        process_defaults(chomped_input)
+        process_other(chomped_input, input)
+      end
+    end
 
-        if !defaults.include? chomped_input
-          puts ("Invalid command :#{input}Available options ...\n").c(91)
-          output_options
-        end
+    def process_defaults(chomped_input)
+      if @defaults.include? chomped_input
+        chomped_input == 'help' ? output_options : exit
+      end
+    end
+
+    def process_other(chomped_input, input)
+      if !@defaults.include? chomped_input
+        puts ("Invalid command :#{input}Available options ...\n").c(91)
+        output_options
       end
     end
 
