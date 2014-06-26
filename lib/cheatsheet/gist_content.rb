@@ -1,5 +1,3 @@
-require_relative '../lib/gist_file'
-require_relative '../lib/gist_setup'
 require 'open-uri'
 
 module CheatSheet
