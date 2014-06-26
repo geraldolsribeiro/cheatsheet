@@ -3,7 +3,7 @@ module CheatSheet
     attr_accessor :options, :file
 
     def initialize
-      puts "Press ':help' for help with cheatsheet commands".c (94)
+      puts "Type 'help' for help with cheatsheet commands".c (94)
 
       @options = {
           :links => "Working with links",
@@ -18,6 +18,21 @@ module CheatSheet
           :selectors => "Css and xpath selectors for elements",
           :exit => "To exit app"
       }
+
+      @search_text = {
+          :buttons => "buttons",
+          :navigating => "Navigating",
+          :help => output_options,
+          :interacting => "Interacting",
+          :scoping => "scoping",
+          :debugging => "Debugging",
+          :querying => "Querying",
+          :scripting => "Scripting",
+          :javascript => "Asynchronous",
+          :selectors => "Xpath",
+          :exit => exit
+      }
+
       @file = CheatSheet::GistFile.new
     end
 
@@ -28,57 +43,10 @@ module CheatSheet
     end
 
     def process_command(input)
-      if input.chomp == ':exit'
-        exit
+      key = input.chomp.to_sym
+      if @search_text.include? key
+        @file.search_file(@search_text[key])
       end
-
-      if input.chomp == ':buttons' || input.chomp == ':links'
-        @file.search_file("buttons")
-      end
-
-      if input.chomp == ':navigating'
-        @file.search_file("Navigating")
-      end
-
-      if input.chomp == ':interacting'
-        @file.search_file("Interacting")
-      end
-
-      if input.chomp == ':scoping'
-        @file.search_file("scoping")
-      end
-
-      if input.chomp == ':debugging'
-        @file.search_file("Debugging")
-      end
-
-      if input.chomp == ':querying'
-        @file.search_file("Querying")
-      end
-
-      if input.chomp == ':javascript'
-        @file.search_file("Asynchronous")
-      end
-
-      if input.chomp == ':selectors'
-        @file.search_file("XPath")
-      end
-
-      if input.chomp == ':scripting'
-        @file.search_file("Scripting")
-      end
-
-      if input.chomp == ':interacting'
-        @file.search_file("Interacting")
-      end
-
-      if input.chomp == ':help'
-        output_options
-      end
-
-      #else
-      #  puts "Invalid command use ':help' to view commands".c(95)
-      #end
     end
 
     def output_options
