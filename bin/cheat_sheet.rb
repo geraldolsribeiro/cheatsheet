@@ -34,6 +34,7 @@ end
 require_relative '../lib/cheatsheet/gist_setup'
 require_relative '../lib/cheatsheet/gist_core'
 require_relative '../lib/cheatsheet/gist_file'
+require_relative '../lib/cheatsheet/command_options'
 
 CheatSheet::GistCore.new.start
 

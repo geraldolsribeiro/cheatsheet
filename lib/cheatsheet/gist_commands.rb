@@ -5,33 +5,9 @@ module CheatSheet
     def initialize
       puts "Type 'help' for help with cheatsheet commands".c (94)
 
-      @options = {
-          :links => 'Working with links',
-          :buttons => 'Interacting with buttons',
-          :navigating => 'Moving between pages',
-          :interacting => 'Interacting with forms',
-          :scoping => 'Page interaction and scoping',
-          :scripting => 'Carrying out scripting',
-          :debugging => 'Commands for debugging',
-          :querying => 'Lists all commands for querying source',
-          :javascript => 'Working with asynchronous Javascript',
-          :selectors => 'Css and xpath selectors for elements',
-          :exit => 'To exit app'
-      }
-
-      @search_text = {
-          :buttons => 'buttons',
-          :links => 'buttons',
-          :navigating => 'Navigating',
-          :interacting => 'Interacting',
-          :scoping => 'scoping',
-          :debugging => 'Debugging',
-          :querying => 'Querying',
-          :scripting => 'Scripting',
-          :javascript => 'Asynchronous',
-          :selectors => 'CSS'
-      }
-      @defaults = ['exit', 'help']
+      @options = CheatSheet::CommandOptions.new.options
+      @defaults = CheatSheet::CommandOptions.new.defaults
+      @search_text = CheatSheet::CommandOptions.new.search_keys
       @file = CheatSheet::GistFile.new
     end
 
