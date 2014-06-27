@@ -17,6 +17,16 @@ module CheatSheet
       end
     end
 
+    def process_command(input)
+      chomped_input = input.chomp
+      key = chomped_input.to_sym
+      validate_input input
+
+      if @search_text.include? key
+        @file.search_file @search_text[key]
+      end
+    end
+
     def validate_input(input)
       chomped_input = input.chomp
       key = chomped_input.to_sym
@@ -37,16 +47,6 @@ module CheatSheet
       if !@defaults.include? chomped_input
         puts ("Invalid command :#{input}Available options ...\n").c(91)
         output_options
-      end
-    end
-
-    def process_command(input)
-      chomped_input = input.chomp
-      key = chomped_input.to_sym
-      validate_input input
-
-      if @search_text.include? key
-        @file.search_file @search_text[key]
       end
     end
 

@@ -14,8 +14,8 @@ module CheatSheet
   end
 
   def trim_indent
-    lines = self.split("\n")
-    unindent = self.split("\n").select { |s| s !~ /^\s$/ }.map { |s| s.index(/[^\s]/) || 0 }.min
-    lines.map { |s| s.gsub(/^#{' ' * unindent}/, '') }.join("\n")
+    lines = self.split('\n')
+    unindent = self.split('\n').select { |s| s !~ /^\s$/ }.map { |s| s.index(/[^\s]/) || 0 }.min
+    lines.map { |s| s.gsub(/^#{' ' * unindent}/, '') }.join('\n')
   end
 end
