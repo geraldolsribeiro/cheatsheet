@@ -2,7 +2,7 @@
 require 'pathname'
 $:.unshift Pathname.new(__FILE__).realpath.join('../../lib') if $0 == __FILE__
 require 'optparse'
-require "cheatsheet/version"
+require 'cheatsheet/version'
 
 option_parser = OptionParser.new(ARGV.dup)
 options = nil
@@ -31,10 +31,12 @@ if !no_logo && !command
   print "\e[0m"
 end
 
-require_relative '../lib/cheatsheet/gist_setup'
-require_relative '../lib/cheatsheet/gist_core'
-require_relative '../lib/cheatsheet/gist_file'
+require 'open-uri'
 require_relative '../lib/cheatsheet/command_options'
+require_relative '../lib/cheatsheet/gist_core'
+require_relative '../lib/cheatsheet/gist_commands'
+require_relative '../lib/cheatsheet/gist_file'
+require_relative '../lib/cheatsheet/gist_setup'
 
 CheatSheet::GistCore.new.start
 
