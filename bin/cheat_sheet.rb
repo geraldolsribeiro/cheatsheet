@@ -32,11 +32,14 @@ if !no_logo && !command
 end
 
 require 'open-uri'
-require_relative '../lib/cheatsheet/command_options'
-require_relative '../lib/cheatsheet/gist_core'
-require_relative '../lib/cheatsheet/gist_commands'
-require_relative '../lib/cheatsheet/gist_file'
-require_relative '../lib/cheatsheet/gist_setup'
+
+%w(
+  command_options
+  gist_core
+  gist_commands
+  gist_file
+  gist_setup
+).each { |file| require_relative ("../lib/cheatsheet/#{file}") }
 
 CheatSheet::GistCore.new.start
 
