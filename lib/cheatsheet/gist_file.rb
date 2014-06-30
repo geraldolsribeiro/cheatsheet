@@ -4,7 +4,7 @@ module CheatSheet
     attr_accessor :file_name, :file_type
 
     def initialize
-      meta = CheatSheet::GistSetup.new.gist_meta
+      meta = CheatSheet::GistSetup::GIST_META
       @file_name = meta[:file_name]
       @file_type = meta[:file_type]
     end
