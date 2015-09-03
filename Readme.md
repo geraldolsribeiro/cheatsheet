@@ -1,4 +1,4 @@
-<img src="https://travis-ci.org/katmutua/cheatsheet.svg" width="120">
+[![Build Status](https://travis-ci.org/katmutua/cheatsheet.svg?branch=master)](https://travis-ci.org/katmutua/cheatsheet)
 
 Cheatsheet
 ----------
