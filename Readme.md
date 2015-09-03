@@ -1,3 +1,5 @@
+<img src="https://travis-ci.org/katmutua/cheatsheet.svg" width="120">
+
 Cheatsheet
 ----------
 
