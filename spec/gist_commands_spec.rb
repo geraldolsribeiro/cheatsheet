@@ -32,6 +32,12 @@ class CommandsSpec
       options = "\e[0;94mType 'help' for help with cheatsheet commands\e[0m\n\e[0;96m    links\e[0m \e[0;92m    Working with links\e[0m\n\e[0;96m    buttons\e[0m \e[0;92m    Interacting with buttons\e[0m\n\e[0;96m    navigating\e[0m \e[0;92m    Moving between pages\e[0m\n\e[0;96m    interacting\e[0m \e[0;92m    Interacting with forms\e[0m\n\e[0;96m    scoping\e[0m \e[0;92m    Page interaction and scoping\e[0m\n\e[0;96m    scripting\e[0m \e[0;92m    Carrying out scripting\e[0m\n\e[0;96m    debugging\e[0m \e[0;92m    Commands for debugging\e[0m\n\e[0;96m    querying\e[0m \e[0;92m    Lists all commands for querying source\e[0m\n\e[0;96m    javascript\e[0m \e[0;92m    Working with asynchronous Javascript\e[0m\n\e[0;96m    selectors\e[0m \e[0;92m    Css and xpath selectors for elements\e[0m\n\e[0;96m    exit\e[0m \e[0;92m    To exit app\e[0m\n"
       expect { commands.output_options }.to output(options).to_stdout
     end
+
+    it 'should validate input and show available commands when the typed command does not exist' do
+      input = 'yo'
+      results = "\e[0;94mType 'help' for help with cheatsheet commands\e[0m\n\e[0;91mInvalid command :yoAvailable options ...\n\e[0m\n\e[0;96m    links\e[0m \e[0;92m    Working with links\e[0m\n\e[0;96m    buttons\e[0m \e[0;92m    Interacting with buttons\e[0m\n\e[0;96m    navigating\e[0m \e[0;92m    Moving between pages\e[0m\n\e[0;96m    interacting\e[0m \e[0;92m    Interacting with forms\e[0m\n\e[0;96m    scoping\e[0m \e[0;92m    Page interaction and scoping\e[0m\n\e[0;96m    scripting\e[0m \e[0;92m    Carrying out scripting\e[0m\n\e[0;96m    debugging\e[0m \e[0;92m    Commands for debugging\e[0m\n\e[0;96m    querying\e[0m \e[0;92m    Lists all commands for querying source\e[0m\n\e[0;96m    javascript\e[0m \e[0;92m    Working with asynchronous Javascript\e[0m\n\e[0;96m    selectors\e[0m \e[0;92m    Css and xpath selectors for elements\e[0m\n\e[0;96m    exit\e[0m \e[0;92m    To exit app\e[0m\n"
+      expect { commands.validate_input input }.to output(results).to_stdout
+    end
   end
 end
 
@@ -53,6 +59,7 @@ class OptionsSpec
       expect(options[:scripting]).to eq('Carrying out scripting')
       expect(options[:debugging]).to eq('Commands for debugging')
       expect(options[:querying]).to eq('Lists all commands for querying source')
+      expect(options[:exit]).to eq('To exit app')
     end
 
     it 'should have the right description text for search key text' do
@@ -62,7 +69,7 @@ class OptionsSpec
       expect(search_keys[:interacting]).to eq('Interacting')
       expect(search_keys[:scoping]).to eq('scoping')
       expect(search_keys[:selectors]).to eq('CSS')
+      expect(search_keys[:debugging]).to eq('Debugging')
     end
-
   end
 end
