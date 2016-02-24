@@ -26,7 +26,7 @@ module CheatSheet
     end
 
     def create_file
-      File.new(@file_name+".#{@file_type}", "w") if is_empty
+      File.new(@file_name+".#{@file_type}", 'w') if is_empty
     end
 
     def current_body_text(text)

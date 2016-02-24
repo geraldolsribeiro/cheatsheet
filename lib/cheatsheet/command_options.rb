@@ -28,6 +28,6 @@ module CheatSheet
         :selectors => 'CSS'
     }
 
-    DEFAULTS = ['exit', 'help']
+    DEFAULTS = %w(exit help)
   end
 end
