@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/katmutua/cheatsheet.svg?branch=master)](https://travis-ci.org/katmutua/cheatsheet)
+Travis Build : [![Build Status](https://travis-ci.org/katmutua/cheatsheet.svg?branch=master)](https://travis-ci.org/katmutua/cheatsheet)
 
 Cheatsheet
 ----------
