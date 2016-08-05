@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '1.8.7'
+ruby '2.1.0'
 
 gem 'rake'
-gem 'slop'
+gem 'slop' ,'4.3.0'
 gem 'activesupport'
 gem 'rubocop'
+gem 'concurrent-ruby', '1.0.2
 group :test do
   gem 'rspec'
 end
