@@ -1,7 +1,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.2.2'
 
 gem 'rake'
 gem 'slop' ,'4.3.0'
