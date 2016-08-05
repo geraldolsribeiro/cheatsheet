@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '1.8.7'
 
 gem 'rake'
 gem 'slop'
