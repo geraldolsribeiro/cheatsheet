@@ -5,7 +5,7 @@ Travis Build
 Cheatsheet
 ----------
 
-Command line cheat sheet for Capybara usage.
+This is a command line cheat sheet that provides a quick look up on the Capybara library usage. The tool shows the various methods avaialble as well as how to use them.
 
 <img src="http://i.imgur.com/pwrUd4p.png" width="400" margin-left="50px">
 
